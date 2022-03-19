@@ -1,0 +1,26 @@
+{
+  "name": "bzzzpy/coop",
+  "autoload": {
+    "classmap": [
+      "src/core",
+      "src/services",
+      "src/models",
+      "src/controllers",
+      "src/helpers",
+      "src/middlewares"
+    ]
+  },
+  "authors": [
+    {
+      "name": "web3learn",
+      "email": "antoinehadrienleguillou@outlook.com"
+    }
+  ],
+  "require": {
+    "psr/http-message": "^1.0",
+    "guzzlehttp/psr7": "^2.0",
+    "http-interop/response-sender": "^1.0",
+    "firebase/php-jwt": "^5.4",
+    "altorouter/altorouter": "^2.0"
+  }
+}

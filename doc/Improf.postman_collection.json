@@ -1,0 +1,3386 @@
+{
+	"info": {
+		"_postman_id": "ae4e43b2-ae78-4398-8185-12d7461d3ddd",
+		"name": "Improf",
+		"description": "Improf made one assumption : everyone posses skills that someone else lack.\nImprof is a platform for people to share their skills freely with the community.\nThe platform integrates in it's core the Zoom client and make available the scheduling of private meeting between members.\nThe platform is self moderated through reviews and credits, in order to benefit from a person formation service, one needs to have a positive balance of credits, credits that one can earn by sharing formation services with the community.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "users/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzk3MzUzNywiaXNzIjoiQ29vcCJ9.vhJb7P4LKKxWGOJL-SQZDwTeP25faQ0eAe3dbIefqmk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}users/30",
+							"host": [
+								"{{ROOT_URL}}users"
+							],
+							"path": [
+								"30"
+							]
+						},
+						"description": "Get user's informations by its id.\nIf user id match current authenticated user (JWT token presence in Authorization Header) the endpoint returns a user full profile."
+					},
+					"response": [
+						{
+							"name": "users/[:id]",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users/29",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"path": [
+										"29"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:00:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 28,\n    \"username\": \"test123\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"$2y$10$qXzk0XG6kbVIPdbocfcuwOzoc3ZihGuqa2nTWMJgNC0ADJyxtPgRm\",\n    \"description\": \"test description\",\n    \"verified\": 0,\n    \"created_at\": \"2021-10-07 10:00:25\",\n    \"updated_at\": null,\n    \"wallet\": {\n        \"is_active\": true,\n        \"id\": 9,\n        \"id_user\": 28,\n        \"balance\": 10,\n        \"created_at\": \"2021-10-07 10:00:25\",\n        \"updated_at\": null\n    },\n    \"formations\": [],\n    \"appointments\": [],\n    \"reviews\": [],\n    \"schedules\": []\n}"
+						},
+						{
+							"name": "users//[:id]",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users/1",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:00:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not found\",\n    \"details\": {\n        \"id\": \"1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test345\",\n    \"email\": \"test345@yopmail.com\",\n    \"password\": \"foobar\",\n    \"description\": \"test description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}users",
+							"host": [
+								"{{ROOT_URL}}users"
+							]
+						},
+						"description": "Create a user account."
+					},
+					"response": [
+						{
+							"name": "users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"test123\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\",\n    \"description\": \"test description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}users",
+									"host": [
+										"{{ROOT_URL}}users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:00:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 28,\n    \"username\": \"test123\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"$2y$10$qXzk0XG6kbVIPdbocfcuwOzoc3ZihGuqa2nTWMJgNC0ADJyxtPgRm\",\n    \"description\": \"test description\",\n    \"verified\": 0,\n    \"created_at\": \"2021-10-07 10:00:25\",\n    \"updated_at\": null,\n    \"wallet\": {\n        \"is_active\": true,\n        \"id\": 9,\n        \"id_user\": 28,\n        \"balance\": 10,\n        \"created_at\": \"2021-10-07 10:00:25\",\n        \"updated_at\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}users",
+							"host": [
+								"{{ROOT_URL}}users"
+							]
+						},
+						"description": "Get all users (pagination defaults to 10 and result set returned from endpoint contains link to following and previous page)\nThe endpoint allow content filtering by username, email, id."
+					},
+					"response": [
+						{
+							"name": "users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users",
+									"host": [
+										"{{ROOT_URL}}users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:01:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"id\": 28,\n            \"username\": \"test123\",\n            \"email\": \"test123@yopmail.com\",\n            \"password\": \"$2y$10$qXzk0XG6kbVIPdbocfcuwOzoc3ZihGuqa2nTWMJgNC0ADJyxtPgRm\",\n            \"description\": \"test description\",\n            \"verified\": 0,\n            \"created_at\": \"2021-10-07 10:00:25\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/users?limit=10&offset=0\",\n    \"next\": \"/Coop/users?limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users?id=28",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "28"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:01:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"id\": 28,\n            \"username\": \"test123\",\n            \"email\": \"test123@yopmail.com\",\n            \"password\": \"$2y$10$qXzk0XG6kbVIPdbocfcuwOzoc3ZihGuqa2nTWMJgNC0ADJyxtPgRm\",\n            \"description\": \"test description\",\n            \"verified\": 0,\n            \"created_at\": \"2021-10-07 10:00:25\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/users?id=28&limit=10&offset=0\",\n    \"next\": \"/Coop/users?id=28&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users?email=test123@yopmail.com",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "test123@yopmail.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:02:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"id\": 28,\n            \"username\": \"test123\",\n            \"email\": \"test123@yopmail.com\",\n            \"password\": \"$2y$10$qXzk0XG6kbVIPdbocfcuwOzoc3ZihGuqa2nTWMJgNC0ADJyxtPgRm\",\n            \"description\": \"test description\",\n            \"verified\": 0,\n            \"created_at\": \"2021-10-07 10:00:25\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/users?email=test123@yopmail.com&limit=10&offset=0\",\n    \"next\": \"/Coop/users?email=test123@yopmail.com&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users?username=test123",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "test123"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:02:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"id\": 28,\n            \"username\": \"test123\",\n            \"email\": \"test123@yopmail.com\",\n            \"password\": \"$2y$10$qXzk0XG6kbVIPdbocfcuwOzoc3ZihGuqa2nTWMJgNC0ADJyxtPgRm\",\n            \"description\": \"test description\",\n            \"verified\": 0,\n            \"created_at\": \"2021-10-07 10:00:25\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/users?username=test123&limit=10&offset=0\",\n    \"next\": \"/Coop/users?username=test123&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users?not-allowed=1",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"query": [
+										{
+											"key": "not-allowed",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:02:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden parameter\",\n    \"details\": {\n        \"forbidden_parameters\": [\n            \"not-allowed\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "users/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}users/28",
+							"host": [
+								"{{ROOT_URL}}users"
+							],
+							"path": [
+								"28"
+							]
+						},
+						"description": "Delete a users account. \nAuthenticated user must match the id present in the url.\nAuthorization header is mandatory."
+					},
+					"response": [
+						{
+							"name": "users/[:id]",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users/28",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"path": [
+										"28"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:03:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden\",\n    \"details\": [\n        \"invalid token\"\n    ]\n}"
+						},
+						{
+							"name": "users/[:id]",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}users/28",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"path": [
+										"28"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:03:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden\",\n    \"details\": [\n        \"user must be authenticated\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "users/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"test12345\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\",\n    \"description\": \"test description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}users/28",
+							"host": [
+								"{{ROOT_URL}}users"
+							],
+							"path": [
+								"28"
+							]
+						},
+						"description": "Update a user account.\nAuthenticated user must match the id present in the url.\nAuthorization header is mandatory."
+					},
+					"response": [
+						{
+							"name": "users/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"test12345\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\",\n    \"description\": \"test description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}users/28",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"path": [
+										"28"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:04:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden\",\n    \"details\": [\n        \"invalid token\"\n    ]\n}"
+						},
+						{
+							"name": "users/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"test12345\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\",\n    \"description\": \"test description\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}users/28",
+									"host": [
+										"{{ROOT_URL}}users"
+									],
+									"path": [
+										"28"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:04:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 28,\n    \"username\": \"test12345\",\n    \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\",\n    \"description\": \"test description\",\n    \"verified\": 0,\n    \"created_at\": \"2021-10-07 10:00:25\",\n    \"updated_at\": \"2021-10-07 10:04:21\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Collection to perform CRUD operations for a user"
+		},
+		{
+			"name": "sessions",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}login",
+							"host": [
+								"{{ROOT_URL}}login"
+							],
+							"query": [
+								{
+									"key": "password",
+									"value": "foobar",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "test@yopmail.com",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Perform a login operation by authenticating the user.\nGenerate a valid JWT token, default JWT token expiration claim is set to 48 hours.\nJWT uid claim only contains user application id."
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}login",
+									"host": [
+										"{{ROOT_URL}}login"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "foobar",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "test@yopmail.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:03:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU\"\n}"
+						},
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"email\": \"test123@yopmail.com\",\n    \"password\": \"foobar1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}login",
+									"host": [
+										"{{ROOT_URL}}login"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "foobar",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "test@yopmail.com",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:04:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not found\",\n    \"details\": []\n}"
+						}
+					]
+				}
+			],
+			"description": "The collection allow user to be authenticated on the application by requesting a JWT token."
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}categories",
+							"host": [
+								"{{ROOT_URL}}categories"
+							]
+						},
+						"description": "Get all the categories."
+					},
+					"response": [
+						{
+							"name": "categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}categories",
+									"host": [
+										"{{ROOT_URL}}categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:05:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categories\": [\n        {\n            \"id\": 2,\n            \"label\": \"Marketing\",\n            \"description\": \"le marketing est une matière .....\",\n            \"created_at\": \"2021-10-07 09:57:29\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/categories?limit=10&offset=0\",\n    \"next\": \"/Coop/categories?limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}categories?id=2",
+									"host": [
+										"{{ROOT_URL}}categories"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:05:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categories\": [\n        {\n            \"id\": 2,\n            \"label\": \"Marketing\",\n            \"description\": \"le marketing est une matière .....\",\n            \"created_at\": \"2021-10-07 09:57:29\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/categories?id=2&limit=10&offset=0\",\n    \"next\": \"/Coop/categories?id=2&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}categories?label=Marketing",
+									"host": [
+										"{{ROOT_URL}}categories"
+									],
+									"query": [
+										{
+											"key": "label",
+											"value": "Marketing"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:05:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categories\": [\n        {\n            \"id\": 2,\n            \"label\": \"Marketing\",\n            \"description\": \"le marketing est une matière .....\",\n            \"created_at\": \"2021-10-07 09:57:29\",\n            \"updated_at\": null\n        }\n    ],\n    \"previous\": \"/Coop/categories?label=Marketing&limit=10&offset=0\",\n    \"next\": \"/Coop/categories?label=Marketing&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}categories?not-allowed=1",
+									"host": [
+										"{{ROOT_URL}}categories"
+									],
+									"query": [
+										{
+											"key": "not-allowed",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:06:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden parameter\",\n    \"details\": {\n        \"forbidden_parameters\": [\n            \"not-allowed\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "categories/[:id]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}categories/2",
+							"host": [
+								"{{ROOT_URL}}categories"
+							],
+							"path": [
+								"2"
+							]
+						},
+						"description": "Get a specific category by its id."
+					},
+					"response": [
+						{
+							"name": "categories/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}categories/2",
+									"host": [
+										"{{ROOT_URL}}categories"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 07:59:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"label\": \"Marketing\",\n    \"description\": \"le marketing est une matière .....\",\n    \"created_at\": \"2021-10-07 09:57:29\",\n    \"updated_at\": null,\n    \"formations\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzc3Njc3MSwiaXNzIjoiQ29vcCJ9.JHaIjU_QjrJbOQqb8kNjASdssQZRkSfsoUBJi080YEQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"label\": \"Marketing 2\",\n    \"description\": \"le marketing est une matière .....\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}categories",
+							"host": [
+								"{{ROOT_URL}}categories"
+							]
+						},
+						"description": "Create a category.\nAuthenticated user must have the admin role.\nAuthorization header is mandatory."
+					},
+					"response": [
+						{
+							"name": "categories",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"label\": \"Marketing\",\n    \"description\": \"le marketing est une matière .....\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}categories",
+									"host": [
+										"{{ROOT_URL}}categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 07:57:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"label\": \"Marketing\",\n    \"description\": \"le marketing est une matière .....\",\n    \"created_at\": \"2021-10-07 09:57:29\",\n    \"updated_at\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "The collection allow user to perform CRUD operations on the related collection."
+		},
+		{
+			"name": "formations",
+			"item": [
+				{
+					"name": "formations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}formations",
+							"host": [
+								"{{ROOT_URL}}formations"
+							]
+						},
+						"description": "Get all the formations.\nPagination limit defaults to 10.\nFiltering is enabled and lookup can be made using label, id, id_category, id_user"
+					},
+					"response": [
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations",
+									"host": [
+										"{{ROOT_URL}}formations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:08:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"formations\": [\n        {\n            \"id\": 8,\n            \"id_user\": 28,\n            \"id_category\": 2,\n            \"label\": \"label\",\n            \"description\": \"description\",\n            \"created_at\": \"2021-10-07 10:07:37\",\n            \"updated_at\": null,\n            \"schedules\": [],\n            \"category\": {\n                \"id\": 2,\n                \"label\": \"Marketing\",\n                \"description\": \"le marketing est une matière .....\",\n                \"created_at\": \"2021-10-07 09:57:29\",\n                \"updated_at\": null\n            },\n            \"user\": {\n                \"id\": 28,\n                \"username\": \"test12345\",\n                \"email\": \"test123@yopmail.com\",\n                \"password\": \"foobar\",\n                \"description\": \"test description\",\n                \"verified\": 0,\n                \"created_at\": \"2021-10-07 10:00:25\",\n                \"updated_at\": \"2021-10-07 10:04:21\"\n            }\n        }\n    ],\n    \"previous\": \"/Coop/formations?limit=10&offset=0\",\n    \"next\": \"/Coop/formations?limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations?id=8",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "8"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:09:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"formations\": [\n        {\n            \"id\": 8,\n            \"id_user\": 28,\n            \"id_category\": 2,\n            \"label\": \"label\",\n            \"description\": \"description\",\n            \"created_at\": \"2021-10-07 10:07:37\",\n            \"updated_at\": null,\n            \"schedules\": [],\n            \"category\": {\n                \"id\": 2,\n                \"label\": \"Marketing\",\n                \"description\": \"le marketing est une matière .....\",\n                \"created_at\": \"2021-10-07 09:57:29\",\n                \"updated_at\": null\n            },\n            \"user\": {\n                \"id\": 28,\n                \"username\": \"test12345\",\n                \"email\": \"test123@yopmail.com\",\n                \"password\": \"foobar\",\n                \"description\": \"test description\",\n                \"verified\": 0,\n                \"created_at\": \"2021-10-07 10:00:25\",\n                \"updated_at\": \"2021-10-07 10:04:21\"\n            }\n        }\n    ],\n    \"previous\": \"/Coop/formations?id=8&limit=10&offset=0\",\n    \"next\": \"/Coop/formations?id=8&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations?label=test",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"query": [
+										{
+											"key": "label",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:09:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"formations\": [],\n    \"previous\": \"/Coop/formations?label=test&limit=10&offset=0\",\n    \"next\": \"/Coop/formations?label=test&limit=10&offset=10\"\n}"
+						},
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations?not-allowed=1",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"query": [
+										{
+											"key": "not-allowed",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:10:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden parameter\",\n    \"details\": {\n        \"forbidden_parameters\": [\n            \"not-allowed\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations?id_user=24",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"query": [
+										{
+											"key": "id_user",
+											"value": "24"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:13:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"formations\": [],\n    \"previous\": \"/Coop/formations?id_user=24&limit=10&offset=0\",\n    \"next\": \"/Coop/formations?id_user=24&limit=10&offset=10\"\n}"
+						}
+					]
+				},
+				{
+					"name": "formations/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzk3MzUzNywiaXNzIjoiQ29vcCJ9.vhJb7P4LKKxWGOJL-SQZDwTeP25faQ0eAe3dbIefqmk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}formations/10",
+							"host": [
+								"{{ROOT_URL}}formations"
+							],
+							"path": [
+								"10"
+							]
+						},
+						"description": "Get a formation by its id.\nIf authorization header present and authenticated user matches formation owner or subscriber to formation the data set will contains private and sensitive information such as meetings and meetings passwords."
+					},
+					"response": [
+						{
+							"name": "formations/[:id]",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations/2",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"path": [
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:14:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Not found\",\n    \"details\": {\n        \"id\": \"2\"\n    }\n}"
+						},
+						{
+							"name": "formations/[:id]",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations/8",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:14:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"id_user\": 28,\n    \"id_category\": 2,\n    \"label\": \"label\",\n    \"description\": \"description\",\n    \"created_at\": \"2021-10-07 10:07:37\",\n    \"updated_at\": null,\n    \"schedules\": [],\n    \"category\": {\n        \"id\": 2,\n        \"label\": \"Marketing\",\n        \"description\": \"le marketing est une matière .....\",\n        \"created_at\": \"2021-10-07 09:57:29\",\n        \"updated_at\": null\n    },\n    \"user\": {\n        \"id\": 28,\n        \"username\": \"test12345\",\n        \"email\": \"test123@yopmail.com\",\n        \"password\": \"foobar\",\n        \"description\": \"test description\",\n        \"verified\": 0,\n        \"created_at\": \"2021-10-07 10:00:25\",\n        \"updated_at\": \"2021-10-07 10:04:21\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "formations/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU\"",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"description new\",\n     \"label\": \"new label\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}formations/8",
+							"host": [
+								"{{ROOT_URL}}formations"
+							],
+							"path": [
+								"8"
+							]
+						},
+						"description": "Update a formation.\nAuthorization header is mandatory and authenticated user must match formation owner."
+					},
+					"response": [
+						{
+							"name": "formations/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"description new\",\n    \"label\": \"new label\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}formations/8",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:14:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden\",\n    \"details\": [\n        \"invalid token\"\n    ]\n}"
+						},
+						{
+							"name": "formations/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"description new\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}formations/8",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:15:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"id_user\": 28,\n    \"id_category\": 2,\n    \"label\": \"label\",\n    \"description\": \"description new\",\n    \"created_at\": \"2021-10-07 10:07:37\",\n    \"updated_at\": \"2021-10-07 10:15:25\"\n}"
+						},
+						{
+							"name": "formations/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"description new\",\n     \"label\": \"new label\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}formations/8",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:16:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"id_user\": 28,\n    \"id_category\": 2,\n    \"label\": \"new label\",\n    \"description\": \"description new\",\n    \"created_at\": \"2021-10-07 10:07:37\",\n    \"updated_at\": \"2021-10-07 10:16:30\"\n}"
+						}
+					]
+				},
+				{
+					"name": "formations/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}formations/8",
+							"host": [
+								"{{ROOT_URL}}formations"
+							],
+							"path": [
+								"8"
+							]
+						},
+						"description": "Delete a formation.\nAuthorization header is mandatory and authenticated user must match formation owner."
+					},
+					"response": [
+						{
+							"name": "formations/[:id]",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}formations/8",
+									"host": [
+										"{{ROOT_URL}}formations"
+									],
+									"path": [
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:17:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"formation deleted with success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "formations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzc4MzI4NywiaXNzIjoiQ29vcCJ9.8NSpL2kGfT6MQQn7H_Wo4XEgm7xF4mmSa7swh5Ec6FA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n         \"label\": \"label\",\n         \"description\": \"description\",\n            \"id_category\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}formations",
+							"host": [
+								"{{ROOT_URL}}formations"
+							]
+						},
+						"description": "Create a formation."
+					},
+					"response": [
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n         \"label\": \"label\",\n            \"description\":\"description\",\n            \"id_category\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}formations",
+									"host": [
+										"{{ROOT_URL}}formations"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:07:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 8,\n    \"id_user\": 28,\n    \"id_category\": 2,\n    \"label\": \"label\",\n    \"description\": \"description\",\n    \"created_at\": \"2021-10-07 10:07:37\",\n    \"updated_at\": null\n}"
+						},
+						{
+							"name": "formations",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n         \"label\": \"label\",\n            \"id_category\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}formations",
+									"host": [
+										"{{ROOT_URL}}formations"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:07:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Parameter mismatch error\",\n    \"details\": {\n        \"required_parameters\": [\n            \"label\",\n            \"description\",\n            \"id_category\"\n        ],\n        \"current_parameters\": [\n            \"label\",\n            \"id_category\"\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"description": "The collection allow user to perform CRUD operations on the related collection."
+		},
+		{
+			"name": "schedules",
+			"item": [
+				{
+					"name": "schedules/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzc4MzI4NywiaXNzIjoiQ29vcCJ9.8NSpL2kGfT6MQQn7H_Wo4XEgm7xF4mmSa7swh5Ec6FA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start\":1733598351,\n    \"end\": 1733598351,\n    \"total_capacity\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}schedules/4",
+							"host": [
+								"{{ROOT_URL}}schedules"
+							],
+							"path": [
+								"4"
+							]
+						},
+						"description": "Update a schedule.\nAuthorization header is mandatory and authenticated user must match formation owner."
+					},
+					"response": [
+						{
+							"name": "schedules/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start\":1633598351,\n    \"end\": 1633598351,\n    \"total_capacity\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}schedules/3",
+									"host": [
+										"{{ROOT_URL}}schedules"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:32:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"is_future\": true,\n    \"is_past\": true,\n    \"is_available\": true,\n    \"duration\": 0,\n    \"available_capacity\": 2,\n    \"id\": 3,\n    \"id_formation\": 9,\n    \"start\": \"2021-10-07 11:19:11\",\n    \"end\": \"2021-10-07 11:19:11\",\n    \"total_capacity\": 2,\n    \"created_at\": \"2021-10-07 10:26:49\",\n    \"updated_at\": \"2021-10-07 10:32:36\"\n}"
+						},
+						{
+							"name": "schedules/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start\":1633598351,\n    \"end\": 1633598351,\n    \"total_capacity\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}schedules/3",
+									"host": [
+										"{{ROOT_URL}}schedules"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:33:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden\",\n    \"details\": [\n        \"user must be authenticated\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "schedules/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Mjd9.p20d1eHPZ_thvdf2LEgtFZT8FhwxmO9RddlKrQedfvQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}schedules/1",
+							"host": [
+								"{{ROOT_URL}}schedules"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "Delete a schedule.\nAuthorization header is mandatory and authenticated user must match formation owner."
+					},
+					"response": []
+				},
+				{
+					"name": "schedules",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzc4MzI4NywiaXNzIjoiQ29vcCJ9.8NSpL2kGfT6MQQn7H_Wo4XEgm7xF4mmSa7swh5Ec6FA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n         \"id_formation\": 10,\n            \"start\":1633598351,\n            \"end\": 1633598351,\n            \"total_capacity\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}schedules",
+							"host": [
+								"{{ROOT_URL}}schedules"
+							]
+						},
+						"description": "Create a schedule for a given formation.\nAuthorization header is mandatory and authenticated user must match formation owner."
+					},
+					"response": [
+						{
+							"name": "schedules",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n         \"id_formation\": 9,\n            \"start\":1633598351,\n            \"end\": 1633598351,\n            \"total_capacity\":5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}schedules",
+									"host": [
+										"{{ROOT_URL}}schedules"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:26:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"is_future\": true,\n    \"is_past\": true,\n    \"is_available\": true,\n    \"duration\": 0,\n    \"available_capacity\": 5,\n    \"id\": 3,\n    \"id_formation\": 9,\n    \"start\": \"2021-10-07 11:19:11\",\n    \"end\": \"2021-10-07 11:19:11\",\n    \"total_capacity\": 5,\n    \"created_at\": \"2021-10-07 10:26:49\",\n    \"updated_at\": null\n}"
+						}
+					]
+				}
+			],
+			"description": "The collection allow user to perform CUD operations on the related collection."
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "reviews/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"content\": \"test review content\", \n       \"rate\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}reviews/3",
+							"host": [
+								"{{ROOT_URL}}reviews"
+							],
+							"path": [
+								"3"
+							]
+						},
+						"description": "Update a review.\nAuthorization header is mandatory and authenticated user must match appointment owner."
+					},
+					"response": [
+						{
+							"name": "reviews/[:id]",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n       \"content\": \"test review content\", \n       \"rate\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}reviews/3",
+									"host": [
+										"{{ROOT_URL}}reviews"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:50:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"id_user\": 28,\n    \"id_appointment\": 5,\n    \"content\": \"test review content\",\n    \"rate\": 2,\n    \"created_at\": \"2021-10-07 10:46:58\",\n    \"updated_at\": \"2021-10-07 10:50:54\"\n}"
+						},
+						{
+							"name": "reviews/1",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n       \"content\": \"test review content\", \n       \"rate\": 2,\n       \"id_appointment\":4\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}reviews/3",
+									"host": [
+										"{{ROOT_URL}}reviews"
+									],
+									"path": [
+										"3"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:51:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden parameter\",\n    \"details\": {\n        \"forbidden_parameters\": [\n            \"id_appointment\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "reviews/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}reviews/1",
+							"host": [
+								"{{ROOT_URL}}reviews"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "Delete a review.\nAuthorization header is mandatory and authenticated user must match appointment owner."
+					},
+					"response": []
+				},
+				{
+					"name": "reviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"id_appointment\":5, \n       \"content\": \"test review content\", \n       \"rate\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}reviews",
+							"host": [
+								"{{ROOT_URL}}reviews"
+							]
+						},
+						"description": "Create a review.\nAuthorization header is mandatory and authenticated user must match appointment owner."
+					},
+					"response": []
+				}
+			],
+			"description": "The collection allow user to perform CUD operations on the related collection."
+		},
+		{
+			"name": "appointments",
+			"item": [
+				{
+					"name": "appointments/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOCIsImV4cCI6MTYzMzc2NjYxOSwiaXNzIjoiQ29vcCJ9.LTQ3oEHGVJ9HUaqsykwk1Cejj8ItQWx-2HYqMp-_ZVU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}appointments/3",
+							"host": [
+								"{{ROOT_URL}}appointments"
+							],
+							"path": [
+								"3"
+							]
+						},
+						"description": "Delete an appointment.\nAuthorization header is mandatory and authenticated user must match appointment owner."
+					},
+					"response": [
+						{
+							"name": "appointments/[:id]",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ROOT_URL}}appointments/4",
+									"host": [
+										"{{ROOT_URL}}appointments"
+									],
+									"path": [
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:43:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"appointment deleted with success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "appointments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzk1NjI3NSwiaXNzIjoiQ29vcCJ9.om5YMrjYCBUyPoP38JSn4pAqFGi2aqDEgNyyoFPiYmc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n       \"id_schedule\":4, \n       \"content\":\"test appointment\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}appointments",
+							"host": [
+								"{{ROOT_URL}}appointments"
+							]
+						},
+						"description": "Create an appointment.\nAuthorization header is mandatory.\nAuthenticated user must have sufficient credit balance.\nSchedule for the formation must exists and be future."
+					},
+					"response": [
+						{
+							"name": "appointments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n       \"id_schedule\":3, \n       \"content\":\"test appointment\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ROOT_URL}}appointments",
+									"host": [
+										"{{ROOT_URL}}appointments"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Oct 2021 08:35:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.10"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "*"
+								},
+								{
+									"key": "Content-type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden\",\n    \"details\": [\n        \"invalid token\"\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "The collection allow a user to perform CUD operations on the related collection."
+		},
+		{
+			"name": "zooms",
+			"item": [
+				{
+					"name": "zoom/authorize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}zoom/authorize",
+							"host": [
+								"{{ROOT_URL}}zoom"
+							],
+							"path": [
+								"authorize"
+							]
+						},
+						"description": "Process a user request to request an access token and a refresh token allowing the application to perform action on the behalf of the user on Zoom API."
+					},
+					"response": []
+				}
+			],
+			"description": "The collection provides means for a user to interact with the Zoom API and schedule or delete a meeting."
+		},
+		{
+			"name": "facebooks",
+			"item": [
+				{
+					"name": "facebook/authorize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}facebook/authorize",
+							"host": [
+								"{{ROOT_URL}}facebook"
+							],
+							"path": [
+								"authorize"
+							]
+						},
+						"description": "Process a user request to request an access token allowing the application to perform action on the behalf of the user on Facebook API."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "meetings",
+			"item": [
+				{
+					"name": "meetings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzk0ODUzMywiaXNzIjoiQ29vcCJ9.lS5u6rgxtpy8aCTJ4xwYIgc5vtJDN00PwwAJps2Uudo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"id_schedule\":4, \n   \"password\":\"foobar\", \n   \"agenda\":\"test agenda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ROOT_URL}}meetings",
+							"host": [
+								"{{ROOT_URL}}meetings"
+							]
+						},
+						"description": "Create a meeting.\nAuthorization header is mandatory.\nAuthenticated user must match formation owner.\nAuthenticated user must have registered Zoom API credentials by calling /zoom/authorize first."
+					},
+					"response": []
+				},
+				{
+					"name": "meetings/[:id]",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyOSIsImV4cCI6MTYzMzk0ODUzMywiaXNzIjoiQ29vcCJ9.lS5u6rgxtpy8aCTJ4xwYIgc5vtJDN00PwwAJps2Uudo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ROOT_URL}}meetings/8",
+							"host": [
+								"{{ROOT_URL}}meetings"
+							],
+							"path": [
+								"8"
+							]
+						},
+						"description": "Delete a meeting.\nAuthorization header is mandatory.\nAuthenticated user must match formation owner.\nAuthenticated user must have registered Zoom API credentials by calling /zoom/authorize first."
+					},
+					"response": []
+				}
+			],
+			"description": "The collections provides means to perform CUD operations in order to manage meetings on the platform and Zoom API."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ROOT_URL",
+			"value": "http://localhost:8000/Coop/"
+		}
+	]
+}
